@@ -1,3 +1,24 @@
+### Justy Sez:  I've forked this to try and fix a bug that is preventing me from using this extension as advetised.
+
+The problem:  After the initial build task, main.vs is created correctly and has expected debug symbols.  However, immediately after choosing the Vice emulator (x64xc) this file is empty (or emptied, more to the point).  The file is still there, but it is empty.  The reported error is:
+
+[error] [Extension Host] stderr: Argument 'main.vs' not valid for option `-moncommands'.
+Error parsing command-line options, bailing out. For help use '-help'
+
+My best guess is that it is this now empty main.vs file that is throwing this error.
+
+Additionaly, curiously, there is a line of code in the extension that seems to create the .vs from the .prg file, which doesn't seem right.
+
+This repo is apparently ahead of the MS Extension Marketplace, so my first steps are to:
+
+1. Replace that version with this version (this repo) (Dunno how just yet but sholdn't be too hard)
+2. See if the problem is still there
+3. If it is, investigate any '-moncommands' lines and see if I can't get this working.
+
+The context of all of this is I just want to get this debugger working as advertised; will be super helpful to see the contents of memory without having to scroll around the emulator.. also to step through etc. in the normal debugger way.
+
+-----
+
 # VS Code Kick Assembler Studio
 
 Code your way into the past with full support for kick assembler in visual studio code!
